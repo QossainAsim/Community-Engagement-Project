@@ -499,7 +499,7 @@ export default function CEPVisualizer() {
         <div className="container mx-auto px-4 text-center">
           <h3 className="text-2xl font-bold mb-4">CEP - Carbon Emissions Platform</h3>
           <p className="text-gray-400 mb-4">
-            Monitoring and visualizing carbon emissions across Beaconhouse National University
+            Monitoring and visualizing carbon emissions across all three Scopes.
           </p>
           <p className="text-sm text-gray-500">A Community Engagement Project by Qossain and Haisam</p>
           <p className="text-sm text-gray-500 mt-2">Data updated regularly • Scope 1, 2 & 3 emissions tracking</p>
