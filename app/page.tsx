@@ -501,7 +501,7 @@ export default function CEPVisualizer() {
           <p className="text-gray-400 mb-4">
             Monitoring and visualizing carbon emissions across all three Scopes.
           </p>
-          <p className="text-sm text-gray-500">A Community Engagement Project by Qossain and Haisam</p>
+          <p className="text-sm text-gray-500">A Community Engagement Project by Qossain, Haisam and Sohaib</p>
           <p className="text-sm text-gray-500 mt-2">Data updated regularly • Scope 1, 2 & 3 emissions tracking</p>
         </div>
       </footer>
