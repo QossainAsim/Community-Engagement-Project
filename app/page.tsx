@@ -15,56 +15,100 @@ export default function CEPVisualizer() {
     setIsVisible(true)
   }, [])
 
-  const scope2Data = [
-    { month: "Jan", gridEmission: 49200, savedEmissions: 36058.68, netEmissions: 13141.32 },
-    { month: "Feb", gridEmission: 12300, savedEmissions: 28553.22, netEmissions: -16253.22 },
-    { month: "Mar", gridEmission: 2460, savedEmissions: 31980, netEmissions: -29340 },
-    { month: "Apr", gridEmission: 46740, savedEmissions: 68325.885, netEmissions: -21585.885 },
-    { month: "May", gridEmission: 71340, savedEmissions: 63919.41, netEmissions: 7420.59 },
-    { month: "Jun", gridEmission: 91020, savedEmissions: 56079.39, netEmissions: 34940.61 },
-  ]
+  // SUPERIOR COLLEGE DATA
+  const superiorScope1Monthly = 1845 // 500L × 3.69 = 1845 kg per month
+  const superiorScope2Monthly = 3660 // 4000 kWh × 0.915 = 3660 kg per month
+  const superiorScope3WasteMonthly = 1760 // (2000 kg × 0.80) + (200 kg × 0.80) = 1760 kg per month
+  const superiorScope3CommutingMonthly = 22140 // 6000L × 3.69 = 22,140 kg per month
 
+  // ASPIRE COLLEGE DATA
+  const aspireScope1Monthly = 1476 // 400L × 3.69 = 1476 kg per month
+  const aspireScope2Monthly = 4575 // 5000 kWh × 0.915 = 4575 kg per month
+  const aspireScope3WasteMonthly = 2280 // (2600 kg × 0.80) + (250 kg × 0.80) = 2280 kg per month
+  const aspireScope3CommutingMonthly = 22140 // 6000L × 3.69 = 22,140 kg per month
+
+  // Monthly breakdown for Scope 1 - Both Colleges
   const scope1Data = [
-    { month: "Jan", emissionsinKg: 11095.2 },
-    { month: "Feb", emissionsinKg: 18191.84 },
-    { month: "Mar", emissionsinKg: 10588.68 },
-    { month: "Apr", emissionsinKg: 8956.56 },
-    { month: "May", emissionsinKg: 7589.76 },
-    { month: "Jun", emissionsinKg: 11647.28 },
+    { month: "Jan", Superior: superiorScope1Monthly, Aspire: aspireScope1Monthly },
+    { month: "Feb", Superior: superiorScope1Monthly, Aspire: aspireScope1Monthly },
+    { month: "Mar", Superior: superiorScope1Monthly, Aspire: aspireScope1Monthly },
+    { month: "Apr", Superior: superiorScope1Monthly, Aspire: aspireScope1Monthly },
+    { month: "May", Superior: superiorScope1Monthly, Aspire: aspireScope1Monthly },
+    { month: "Jun", Superior: superiorScope1Monthly, Aspire: aspireScope1Monthly },
+    { month: "Jul", Superior: superiorScope1Monthly, Aspire: aspireScope1Monthly },
+    { month: "Aug", Superior: superiorScope1Monthly, Aspire: aspireScope1Monthly },
+    { month: "Sep", Superior: superiorScope1Monthly, Aspire: aspireScope1Monthly },
+    { month: "Oct", Superior: superiorScope1Monthly, Aspire: aspireScope1Monthly },
+    { month: "Nov", Superior: superiorScope1Monthly, Aspire: aspireScope1Monthly },
+    { month: "Dec", Superior: superiorScope1Monthly, Aspire: aspireScope1Monthly },
   ]
 
-  const scope3Data = [
+  // Monthly breakdown for Scope 2 - Both Colleges
+  const scope2Data = [
+    { month: "Jan", Superior: superiorScope2Monthly, Aspire: aspireScope2Monthly },
+    { month: "Feb", Superior: superiorScope2Monthly, Aspire: aspireScope2Monthly },
+    { month: "Mar", Superior: superiorScope2Monthly, Aspire: aspireScope2Monthly },
+    { month: "Apr", Superior: superiorScope2Monthly, Aspire: aspireScope2Monthly },
+    { month: "May", Superior: superiorScope2Monthly, Aspire: aspireScope2Monthly },
+    { month: "Jun", Superior: superiorScope2Monthly, Aspire: aspireScope2Monthly },
+    { month: "Jul", Superior: superiorScope2Monthly, Aspire: aspireScope2Monthly },
+    { month: "Aug", Superior: superiorScope2Monthly, Aspire: aspireScope2Monthly },
+    { month: "Sep", Superior: superiorScope2Monthly, Aspire: aspireScope2Monthly },
+    { month: "Oct", Superior: superiorScope2Monthly, Aspire: aspireScope2Monthly },
+    { month: "Nov", Superior: superiorScope2Monthly, Aspire: aspireScope2Monthly },
+    { month: "Dec", Superior: superiorScope2Monthly, Aspire: aspireScope2Monthly },
+  ]
+
+  // Monthly breakdown for Scope 3 Waste - Both Colleges
+  const scope3WasteData = [
+    { month: "Jan", Superior: superiorScope3WasteMonthly, Aspire: aspireScope3WasteMonthly },
+    { month: "Feb", Superior: superiorScope3WasteMonthly, Aspire: aspireScope3WasteMonthly },
+    { month: "Mar", Superior: superiorScope3WasteMonthly, Aspire: aspireScope3WasteMonthly },
+    { month: "Apr", Superior: superiorScope3WasteMonthly, Aspire: aspireScope3WasteMonthly },
+    { month: "May", Superior: superiorScope3WasteMonthly, Aspire: aspireScope3WasteMonthly },
+    { month: "Jun", Superior: superiorScope3WasteMonthly, Aspire: aspireScope3WasteMonthly },
+    { month: "Jul", Superior: superiorScope3WasteMonthly, Aspire: aspireScope3WasteMonthly },
+    { month: "Aug", Superior: superiorScope3WasteMonthly, Aspire: aspireScope3WasteMonthly },
+    { month: "Sep", Superior: superiorScope3WasteMonthly, Aspire: aspireScope3WasteMonthly },
+    { month: "Oct", Superior: superiorScope3WasteMonthly, Aspire: aspireScope3WasteMonthly },
+    { month: "Nov", Superior: superiorScope3WasteMonthly, Aspire: aspireScope3WasteMonthly },
+    { month: "Dec", Superior: superiorScope3WasteMonthly, Aspire: aspireScope3WasteMonthly },
+  ]
+
+  // Annual totals
+  const superiorTotalScope1 = 22140 // Annual generator diesel
+  const superiorTotalScope2 = 43920 // Annual grid electricity
+  const superiorTotalScope3 = 286920 // Waste (21,120) + Commuting (265,680)
+  const superiorTotal = 353000
+
+  const aspireTotalScope1 = 17712 // Annual generator diesel
+  const aspireTotalScope2 = 54900 // Annual grid electricity
+  const aspireTotalScope3 = 293040 // Waste (27,360) + Commuting (265,680)
+  const aspireTotal = 365652
+
+  // Comparison data
+  const comparisonData = [
     {
-      month: "May",
-      bottles: 80.1,
-      glass: 50.6,
-      foodWaste: 2067.3,
-      plastic: 13.2,
-      cartons: 106,
-      emissionsBottles: 200.25,
-      emissionsGlass: 72.7122,
-      emissionsFoodWaste: 2697.82,
-      emissionsPlastic: 38.016,
-      emissionsCartons: 99.64,
+      category: "Generator Diesel",
+      Superior: superiorTotalScope1,
+      Aspire: aspireTotalScope1,
     },
     {
-      month: "Jun",
-      bottles: 119.8,
-      glass: 177.85,
-      foodWaste: 1223,
-      plastic: 69,
-      cartons: 276.6,
-      emissionsBottles: 299.5,
-      emissionsGlass: 255.57,
-      emissionsFoodWaste: 1596.015,
-      emissionsPlastic: 198.72,
-      emissionsCartons: 260.004,
-    }
+      category: "Grid Electricity",
+      Superior: superiorTotalScope2,
+      Aspire: aspireTotalScope2,
+    },
+    {
+      category: "Commuting",
+      Superior: 265680,
+      Aspire: 265680,
+    },
+    {
+      category: "Waste",
+      Superior: 21120,
+      Aspire: 27360,
+    },
   ]
-
-  const totalScope2NetEmissions = scope2Data.reduce((sum, item) => sum + item.gridEmission, 0)
-  const totalScope1Emissions = scope1Data.reduce((sum, item) => sum + item.emissionsinKg, 0)
-  const totalScope3Emissions = 5718.25
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white text-gray-900">
@@ -164,7 +208,7 @@ export default function CEPVisualizer() {
                 </Badge>
                 <Badge variant="outline" className="text-white border-white/40 bg-white/10 backdrop-blur-sm px-4 py-2 text-sm">
                   <Zap className="w-4 h-4 mr-2" />
-                  BEP Project
+                  Two College Comparison
                 </Badge>
               </div>
               <Link href="/page1">
@@ -190,44 +234,40 @@ export default function CEPVisualizer() {
                         </div>
                       </div>
                       
-                      <div className="grid grid-cols-3 gap-4">
-                        <div className="bg-white/5 backdrop-blur rounded-xl p-4 border border-white/10">
-                          <div className="text-red-400 text-sm mb-2">Scope 1</div>
-                          <div className="text-2xl font-bold text-white">{(totalScope1Emissions / 1000).toFixed(1)}t</div>
-                          <div className="flex items-center gap-1 mt-2">
-                            <div className="w-full bg-white/10 rounded-full h-2">
-                              <div className="bg-red-500 h-2 rounded-full" style={{ width: '68%' }} />
-                            </div>
-                          </div>
+                      <div className="grid grid-cols-2 gap-4 mb-4">
+                        <div className="bg-white/5 backdrop-blur rounded-xl p-4 border border-white/10 col-span-2">
+                          <div className="text-emerald-400 text-sm mb-2">Total Combined</div>
+                          <div className="text-3xl font-bold text-white">{((superiorTotal + aspireTotal) / 1000).toFixed(1)}t CO₂</div>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="bg-white/5 backdrop-blur rounded-xl p-3 border border-white/10">
+                          <div className="text-blue-400 text-xs mb-1">Superior</div>
+                          <div className="text-xl font-bold text-white">{(superiorTotal / 1000).toFixed(1)}t</div>
                         </div>
                         
-                        <div className="bg-white/5 backdrop-blur rounded-xl p-4 border border-white/10">
-                          <div className="text-green-400 text-sm mb-2">Scope 2</div>
-                          <div className="text-2xl font-bold text-white">{(totalScope2NetEmissions / 1000).toFixed(1)}t</div>
-                          <div className="flex items-center gap-1 mt-2">
-                            <div className="w-full bg-white/10 rounded-full h-2">
-                              <div className="bg-green-500 h-2 rounded-full" style={{ width: '45%' }} />
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div className="bg-white/5 backdrop-blur rounded-xl p-4 border border-white/10">
-                          <div className="text-orange-400 text-sm mb-2">Scope 3</div>
-                          <div className="text-2xl font-bold text-white">{(totalScope3Emissions / 1000).toFixed(1)}t</div>
-                          <div className="flex items-center gap-1 mt-2">
-                            <div className="w-full bg-white/10 rounded-full h-2">
-                              <div className="bg-orange-500 h-2 rounded-full" style={{ width: '32%' }} />
-                            </div>
-                          </div>
+                        <div className="bg-white/5 backdrop-blur rounded-xl p-3 border border-white/10">
+                          <div className="text-purple-400 text-xs mb-1">Aspire</div>
+                          <div className="text-xl font-bold text-white">{(aspireTotal / 1000).toFixed(1)}t</div>
                         </div>
                       </div>
 
                       <div className="bg-white/5 backdrop-blur rounded-xl p-4 border border-white/10 mt-4">
-                        <div className="text-gray-300 text-sm mb-3">Monthly Trend</div>
-                        <div className="flex items-end gap-2 h-24">
-                          {[40, 65, 45, 70, 55, 80].map((height, i) => (
-                            <div key={i} className="flex-1 bg-gradient-to-t from-emerald-500 to-emerald-300 rounded-t" style={{ height: `${height}%` }} />
-                          ))}
+                        <div className="text-gray-300 text-sm mb-3">Emissions Breakdown</div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between text-xs">
+                            <span className="text-gray-400">Scope 1</span>
+                            <span className="text-white font-bold">{((superiorTotalScope1 + aspireTotalScope1) / 1000).toFixed(1)}t</span>
+                          </div>
+                          <div className="flex justify-between text-xs">
+                            <span className="text-gray-400">Scope 2</span>
+                            <span className="text-white font-bold">{((superiorTotalScope2 + aspireTotalScope2) / 1000).toFixed(1)}t</span>
+                          </div>
+                          <div className="flex justify-between text-xs">
+                            <span className="text-gray-400">Scope 3</span>
+                            <span className="text-white font-bold">{((superiorTotalScope3 + aspireTotalScope3) / 1000).toFixed(1)}t</span>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -250,89 +290,98 @@ export default function CEPVisualizer() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-black mb-4">
-              <span className="gradient-text">Emissions Overview</span>
+              <span className="gradient-text">Annual Emissions Overview</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Comprehensive tracking across all emission scopes
+              Comparative analysis of Superior College and Aspire College Pattoki
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="card-hover flex flex-col items-center justify-center bg-gradient-to-br from-white to-red-50 rounded-3xl shadow-xl p-8 border border-red-100">
-              <div className="mb-6">
-                <ResponsiveContainer width={220} height={220}>
-                  <RadialBarChart
-                    innerRadius="70%"
-                    outerRadius="100%"
-                    data={[{ value: totalScope1Emissions, fill: "#dc2626" }]}
-                    startAngle={90}
-                    endAngle={-270}
-                  >
-                    <PolarAngleAxis type="number" domain={[0, 100000]} tick={false} />
-                    <RadialBar background dataKey="value" cornerRadius={50} />
-                  </RadialBarChart>
-                </ResponsiveContainer>
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* Superior College */}
+            <div className="card-hover bg-gradient-to-br from-white to-blue-50 rounded-3xl shadow-xl p-8 border border-blue-100">
+              <div className="text-center mb-6">
+                <h3 className="text-3xl font-black text-blue-600 mb-2">Superior College</h3>
+                <p className="text-gray-600">Pattoki Campus</p>
               </div>
-              <div className="bg-red-600 text-white px-4 py-1 rounded-full text-sm font-bold mb-3">
-                SCOPE 1
+              <div className="grid grid-cols-3 gap-4">
+                <div className="text-center">
+                  <div className="bg-red-100 rounded-xl p-4 mb-2">
+                    <div className="text-2xl font-black text-red-600">{(superiorTotalScope1 / 1000).toFixed(1)}t</div>
+                  </div>
+                  <p className="text-xs text-gray-600">Scope 1</p>
+                </div>
+                <div className="text-center">
+                  <div className="bg-green-100 rounded-xl p-4 mb-2">
+                    <div className="text-2xl font-black text-green-600">{(superiorTotalScope2 / 1000).toFixed(1)}t</div>
+                  </div>
+                  <p className="text-xs text-gray-600">Scope 2</p>
+                </div>
+                <div className="text-center">
+                  <div className="bg-orange-100 rounded-xl p-4 mb-2">
+                    <div className="text-2xl font-black text-orange-600">{(superiorTotalScope3 / 1000).toFixed(1)}t</div>
+                  </div>
+                  <p className="text-xs text-gray-600">Scope 3</p>
+                </div>
               </div>
-              <h3 className="text-3xl font-black text-red-600 mb-2">
-                {totalScope1Emissions.toLocaleString()} kg
-              </h3>
-              <p className="text-gray-600 text-center font-medium">CO₂ from Diesel Generators</p>
-              <p className="text-sm text-gray-500 mt-2">Jan-Jun 2025</p>
+              <div className="mt-6 p-4 bg-blue-600 rounded-xl text-center">
+                <div className="text-3xl font-black text-white">{(superiorTotal / 1000).toFixed(1)}t</div>
+                <p className="text-blue-100 text-sm">Total Annual Emissions</p>
+              </div>
             </div>
 
-            <div className="card-hover flex flex-col items-center justify-center bg-gradient-to-br from-white to-green-50 rounded-3xl shadow-xl p-8 border border-green-100">
-              <div className="mb-6">
-                <ResponsiveContainer width={220} height={220}>
-                  <RadialBarChart
-                    innerRadius="70%"
-                    outerRadius="100%"
-                    data={[{ value: Math.abs(totalScope2NetEmissions), fill: "#16a34a" }]}
-                    startAngle={90}
-                    endAngle={-270}
-                  >
-                    <PolarAngleAxis type="number" domain={[0, 200000]} tick={false} />
-                    <RadialBar background dataKey="value" cornerRadius={50} />
-                  </RadialBarChart>
-                </ResponsiveContainer>
+            {/* Aspire College */}
+            <div className="card-hover bg-gradient-to-br from-white to-purple-50 rounded-3xl shadow-xl p-8 border border-purple-100">
+              <div className="text-center mb-6">
+                <h3 className="text-3xl font-black text-purple-600 mb-2">Aspire College</h3>
+                <p className="text-gray-600">Pattoki Campus</p>
               </div>
-              <div className="bg-green-600 text-white px-4 py-1 rounded-full text-sm font-bold mb-3">
-                SCOPE 2
+              <div className="grid grid-cols-3 gap-4">
+                <div className="text-center">
+                  <div className="bg-red-100 rounded-xl p-4 mb-2">
+                    <div className="text-2xl font-black text-red-600">{(aspireTotalScope1 / 1000).toFixed(1)}t</div>
+                  </div>
+                  <p className="text-xs text-gray-600">Scope 1</p>
+                </div>
+                <div className="text-center">
+                  <div className="bg-green-100 rounded-xl p-4 mb-2">
+                    <div className="text-2xl font-black text-green-600">{(aspireTotalScope2 / 1000).toFixed(1)}t</div>
+                  </div>
+                  <p className="text-xs text-gray-600">Scope 2</p>
+                </div>
+                <div className="text-center">
+                  <div className="bg-orange-100 rounded-xl p-4 mb-2">
+                    <div className="text-2xl font-black text-orange-600">{(aspireTotalScope3 / 1000).toFixed(1)}t</div>
+                  </div>
+                  <p className="text-xs text-gray-600">Scope 3</p>
+                </div>
               </div>
-              <h3 className="text-3xl font-black text-green-600 mb-2">
-                {Math.abs(totalScope2NetEmissions).toLocaleString()} kg
-              </h3>
-              <p className="text-gray-600 text-center font-medium">Net Electricity Emissions</p>
-              <p className="text-sm text-gray-500 mt-2">Grid + Solar Offset</p>
-            </div>
-
-            <div className="card-hover flex flex-col items-center justify-center bg-gradient-to-br from-white to-orange-50 rounded-3xl shadow-xl p-8 border border-orange-100">
-              <div className="mb-6">
-                <ResponsiveContainer width={220} height={220}>
-                  <RadialBarChart
-                    innerRadius="70%"
-                    outerRadius="100%"
-                    data={[{ value: totalScope3Emissions, fill: "#ea580c" }]}
-                    startAngle={90}
-                    endAngle={-270}
-                  >
-                    <PolarAngleAxis type="number" domain={[0, 10000]} tick={false} />
-                    <RadialBar background dataKey="value" cornerRadius={50} />
-                  </RadialBarChart>
-                </ResponsiveContainer>
+              <div className="mt-6 p-4 bg-purple-600 rounded-xl text-center">
+                <div className="text-3xl font-black text-white">{(aspireTotal / 1000).toFixed(1)}t</div>
+                <p className="text-purple-100 text-sm">Total Annual Emissions</p>
               </div>
-              <div className="bg-orange-600 text-white px-4 py-1 rounded-full text-sm font-bold mb-3">
-                SCOPE 3
-              </div>
-              <h3 className="text-3xl font-black text-orange-600 mb-2">
-                {totalScope3Emissions.toLocaleString()} kg
-              </h3>
-              <p className="text-gray-600 text-center font-medium">CO₂e from Waste</p>
-              <p className="text-sm text-gray-500 mt-2">Indirect Emissions</p>
             </div>
           </div>
+
+          {/* Comparison Chart */}
+          <Card className="border-2 border-gray-200 shadow-2xl rounded-3xl overflow-hidden card-hover">
+            <CardHeader className="bg-gradient-to-r from-gray-50 to-white">
+              <CardTitle className="text-2xl">Comparative Emissions Analysis</CardTitle>
+              <CardDescription className="text-base">Side-by-side comparison of emission sources</CardDescription>
+            </CardHeader>
+            <CardContent className="p-8">
+              <ResponsiveContainer width="100%" height={400}>
+                <BarChart data={comparisonData}>
+                  <XAxis dataKey="category" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="Superior" fill="#3b82f6" name="Superior College" radius={[8, 8, 0, 0]} />
+                  <Bar dataKey="Aspire" fill="#a855f7" name="Aspire College" radius={[8, 8, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
@@ -345,13 +394,13 @@ export default function CEPVisualizer() {
               </div>
               <h2 className="text-4xl font-black">Scope 1: Direct Emissions</h2>
             </div>
-            <p className="text-lg text-gray-600 ml-15">Monthly diesel generator usage and CO₂ emissions trend</p>
+            <p className="text-lg text-gray-600 ml-15">Diesel generator usage - Superior: 500 L/month | Aspire: 400 L/month</p>
           </div>
 
           <Card className="border-2 border-red-200 shadow-2xl rounded-3xl overflow-hidden card-hover">
             <CardHeader className="bg-gradient-to-r from-red-50 to-white">
-              <CardTitle className="text-2xl">Monthly Diesel Generator Emissions</CardTitle>
-              <CardDescription className="text-base">CO₂ emissions from diesel generators (kg)</CardDescription>
+              <CardTitle className="text-2xl">Monthly Diesel Generator Emissions Comparison</CardTitle>
+              <CardDescription className="text-base">CO₂ emissions (kg) - Superior: 22,140 kg/year | Aspire: 17,712 kg/year</CardDescription>
             </CardHeader>
             <CardContent className="p-8">
               <ResponsiveContainer width="100%" height={350}>
@@ -362,11 +411,19 @@ export default function CEPVisualizer() {
                   <Legend />
                   <Line
                     type="monotone"
-                    dataKey="emissionsinKg"
-                    stroke="#dc2626"
+                    dataKey="Superior"
+                    stroke="#3b82f6"
                     strokeWidth={4}
-                    dot={{ fill: "#dc2626", strokeWidth: 2, r: 8 }}
-                    name="CO₂ Emissions (kg)"
+                    dot={{ fill: "#3b82f6", strokeWidth: 2, r: 8 }}
+                    name="Superior College (kg)"
+                  />
+                  <Line
+                    type="monotone"
+                    dataKey="Aspire"
+                    stroke="#a855f7"
+                    strokeWidth={4}
+                    dot={{ fill: "#a855f7", strokeWidth: 2, r: 8 }}
+                    name="Aspire College (kg)"
                   />
                 </LineChart>
               </ResponsiveContainer>
@@ -384,13 +441,13 @@ export default function CEPVisualizer() {
               </div>
               <h2 className="text-4xl font-black">Scope 2: Electricity Emissions</h2>
             </div>
-            <p className="text-lg text-gray-600 ml-15">Grid emissions vs solar offset showing net carbon impact</p>
+            <p className="text-lg text-gray-600 ml-15">Grid electricity - Superior: 4,000 kWh/month | Aspire: 5,000 kWh/month</p>
           </div>
 
           <Card className="border-2 border-green-200 shadow-2xl rounded-3xl overflow-hidden card-hover">
             <CardHeader className="bg-gradient-to-r from-green-50 to-white">
-              <CardTitle className="text-2xl">Grid Emissions vs Solar Offset</CardTitle>
-              <CardDescription className="text-base">Emissions from grid and savings from solar</CardDescription>
+              <CardTitle className="text-2xl">Monthly Grid Emissions Comparison</CardTitle>
+              <CardDescription className="text-base">Superior: 43,920 kg/year | Aspire: 54,900 kg/year</CardDescription>
             </CardHeader>
             <CardContent className="p-8">
               <ResponsiveContainer width="100%" height={400}>
@@ -399,9 +456,8 @@ export default function CEPVisualizer() {
                   <YAxis />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="gridEmission" fill="#DC2626" name="Grid Emissions" radius={[8, 8, 0, 0]} />
-                  <Bar dataKey="savedEmissions" fill="#16A34A" name="Saved Emissions" radius={[8, 8, 0, 0]} />
-                  <Bar dataKey="netEmissions" fill="#333333" name="Net Emissions" radius={[8, 8, 0, 0]} />
+                  <Bar dataKey="Superior" fill="#3b82f6" name="Superior College (kg)" radius={[8, 8, 0, 0]} />
+                  <Bar dataKey="Aspire" fill="#a855f7" name="Aspire College (kg)" radius={[8, 8, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>
@@ -418,27 +474,24 @@ export default function CEPVisualizer() {
               </div>
               <h2 className="text-4xl font-black">Scope 3: Indirect Emissions</h2>
             </div>
-            <p className="text-lg text-gray-600 ml-15">Emissions from waste production and management</p>
+            <p className="text-lg text-gray-600 ml-15">Waste management and commuting emissions</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8 mb-8">
             <Card className="border-2 border-orange-200 shadow-xl rounded-3xl overflow-hidden card-hover">
               <CardHeader className="bg-gradient-to-r from-orange-50 to-white">
-                <CardTitle className="text-xl">Waste Production</CardTitle>
-                <CardDescription>Monthly waste by category (kg)</CardDescription>
+                <CardTitle className="text-xl">Monthly Waste Emissions</CardTitle>
+                <CardDescription>Comparison of waste-related emissions (kg CO₂e)</CardDescription>
               </CardHeader>
               <CardContent className="p-6">
                 <ResponsiveContainer width="100%" height={300}>
-                  <BarChart data={scope3Data} layout="vertical">
-                    <XAxis type="number" />
-                    <YAxis dataKey="month" type="category" width={100} />
+                  <BarChart data={scope3WasteData.slice(0, 6)}>
+                    <XAxis dataKey="month" />
+                    <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="bottles" fill="#1f77b4" name="Bottles (kg)" radius={[0, 4, 4, 0]} />
-                    <Bar dataKey="glass" fill="#ff7f0e" name="Glass (kg)" radius={[0, 4, 4, 0]} />
-                    <Bar dataKey="foodWaste" fill="#2ca02c" name="Food Waste (kg)" radius={[0, 4, 4, 0]} />
-                    <Bar dataKey="plastic" fill="#d62728" name="Plastic (kg)" radius={[0, 4, 4, 0]} />
-                    <Bar dataKey="cartons" fill="#9467bd" name="Cartons (kg)" radius={[0, 4, 4, 0]} />
+                    <Bar dataKey="Superior" fill="#3b82f6" name="Superior" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="Aspire" fill="#a855f7" name="Aspire" radius={[4, 4, 0, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
               </CardContent>
@@ -446,49 +499,89 @@ export default function CEPVisualizer() {
 
             <Card className="border-2 border-orange-200 shadow-xl rounded-3xl overflow-hidden card-hover">
               <CardHeader className="bg-gradient-to-r from-orange-50 to-white">
-                <CardTitle className="text-xl">Emissions by Waste</CardTitle>
-                <CardDescription>Monthly emissions by category (KgCO₂e)</CardDescription>
+                <CardTitle className="text-xl">Scope 3 Breakdown</CardTitle>
+                <CardDescription>Annual emissions by category</CardDescription>
               </CardHeader>
               <CardContent className="p-6">
-                <ResponsiveContainer width="100%" height={300}>
-                  <BarChart data={scope3Data} layout="vertical">
-                    <XAxis type="number" />
-                    <YAxis dataKey="month" type="category" width={100} />
-                    <Tooltip />
-                    <Legend />
-                    <Bar dataKey="emissionsBottles" fill="#1f77b4" name="Bottles (KgCO₂e)" radius={[0, 4, 4, 0]} />
-                    <Bar dataKey="emissionsGlass" fill="#ff7f0e" name="Glass (KgCO₂e)" radius={[0, 4, 4, 0]} />
-                    <Bar dataKey="emissionsFoodWaste" fill="#2ca02c" name="Food Waste (KgCO₂e)" radius={[0, 4, 4, 0]} />
-                    <Bar dataKey="emissionsPlastic" fill="#d62728" name="Plastic (KgCO₂e)" radius={[0, 4, 4, 0]} />
-                    <Bar dataKey="emissionsCartons" fill="#9467bd" name="Cartons (KgCO₂e)" radius={[0, 4, 4, 0]} />
-                  </BarChart>
-                </ResponsiveContainer>
+                <div className="space-y-4">
+                  <div>
+                    <div className="flex justify-between mb-2">
+                      <span className="text-sm font-medium">Commuting (Both)</span>
+                      <span className="text-sm font-bold">265,680 kg</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-3">
+                      <div className="bg-orange-500 h-3 rounded-full" style={{ width: '90%' }} />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between mb-2">
+                      <span className="text-sm font-medium">Waste - Superior</span>
+                      <span className="text-sm font-bold">21,120 kg</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-3">
+                      <div className="bg-blue-500 h-3 rounded-full" style={{ width: '7%' }} />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between mb-2">
+                      <span className="text-sm font-medium">Waste - Aspire</span>
+                      <span className="text-sm font-bold">27,360 kg</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-3">
+                      <div className="bg-purple-500 h-3 rounded-full" style={{ width: '9%' }} />
+                    </div>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-4 gap-6">
             <Card className="border-2 border-orange-200 card-hover shadow-xl rounded-3xl overflow-hidden">
               <CardHeader className="bg-gradient-to-r from-orange-50 to-white">
-                <CardTitle className="text-xl">Total Waste Emissions</CardTitle>
+                <CardTitle className="text-lg">Superior - Scope 3</CardTitle>
               </CardHeader>
               <CardContent className="p-6">
-                <div className="text-4xl font-black text-orange-600">
-                  {totalScope3Emissions.toFixed(2)} <span className="text-2xl text-gray-600">KgCO₂e</span>
+                <div className="text-3xl font-black text-blue-600">
+                  {(superiorTotalScope3 / 1000).toFixed(1)} <span className="text-xl text-gray-600">t</span>
                 </div>
-                <p className="text-sm text-gray-500 mt-2">Over two months</p>
+                <p className="text-xs text-gray-500 mt-2">Annual total</p>
               </CardContent>
             </Card>
 
             <Card className="border-2 border-orange-200 card-hover shadow-xl rounded-3xl overflow-hidden">
               <CardHeader className="bg-gradient-to-r from-orange-50 to-white">
-                <CardTitle className="text-xl">Total Waste Generated</CardTitle>
+                <CardTitle className="text-lg">Aspire - Scope 3</CardTitle>
               </CardHeader>
               <CardContent className="p-6">
-                <div className="text-4xl font-black text-orange-600">
-                  {(scope3Data.reduce((sum, m) => sum + m.bottles + m.glass + m.foodWaste + m.plastic + m.cartons, 0)).toFixed(2)} <span className="text-2xl text-gray-600">kg</span>
+                <div className="text-3xl font-black text-purple-600">
+                  {(aspireTotalScope3 / 1000).toFixed(1)} <span className="text-xl text-gray-600">t</span>
                 </div>
-                <p className="text-sm text-gray-500 mt-2">Scope 3 Category 5</p>
+                <p className="text-xs text-gray-500 mt-2">Annual total</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-orange-200 card-hover shadow-xl rounded-3xl overflow-hidden">
+              <CardHeader className="bg-gradient-to-r from-orange-50 to-white">
+                <CardTitle className="text-lg">Commuting Total</CardTitle>
+              </CardHeader>
+              <CardContent className="p-6">
+                <div className="text-3xl font-black text-orange-600">
+                  265.7 <span className="text-xl text-gray-600">t</span>
+                </div>
+                <p className="text-xs text-gray-500 mt-2">Both colleges</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-orange-200 card-hover shadow-xl rounded-3xl overflow-hidden">
+              <CardHeader className="bg-gradient-to-r from-orange-50 to-white">
+                <CardTitle className="text-lg">Combined Scope 3</CardTitle>
+              </CardHeader>
+              <CardContent className="p-6">
+                <div className="text-3xl font-black text-gray-800">
+                  {((superiorTotalScope3 + aspireTotalScope3) / 1000).toFixed(1)} <span className="text-xl text-gray-600">t</span>
+                </div>
+                <p className="text-xs text-gray-500 mt-2">Total indirect</p>
               </CardContent>
             </Card>
           </div>
@@ -499,10 +592,10 @@ export default function CEPVisualizer() {
         <div className="container mx-auto px-4 text-center">
           <h3 className="text-2xl font-bold mb-4">CEP - Carbon Emissions Platform</h3>
           <p className="text-gray-400 mb-4">
-            Monitoring and visualizing carbon emissions across all three Scopes.
+            Monitoring and visualizing carbon emissions - Superior & Aspire College Pattoki
           </p>
           <p className="text-sm text-gray-500">A Community Engagement Project by Qossain, Haisam and Sohaib</p>
-          <p className="text-sm text-gray-500 mt-2">Data updated regularly • Scope 1, 2 & 3 emissions tracking</p>
+          <p className="text-sm text-gray-500 mt-2">Superior: 353,000 kg CO₂ | Aspire: 365,652 kg CO₂ | Combined: 718,652 kg CO₂</p>
         </div>
       </footer>
     </div>
